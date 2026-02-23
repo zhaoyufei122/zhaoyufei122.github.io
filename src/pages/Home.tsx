@@ -49,7 +49,7 @@ export default function Home() {
             <div className="relative aspect-square rounded-2xl overflow-hidden border border-zinc-200 dark:border-zinc-800 shadow-xl transition-colors">
               {/* Profile Photo Placeholder */}
               <img 
-                src="https://picsum.photos/seed/zhaoyufei/800/800" 
+                src="/profile.jpg" 
                 alt="ZHAO Yufei" 
                 className="object-cover w-full h-full"
                 referrerPolicy="no-referrer"
