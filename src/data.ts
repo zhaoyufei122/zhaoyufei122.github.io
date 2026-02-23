@@ -32,10 +32,11 @@ export const personalInfo = {
   ],
   skills: {
     programming: ["C/C++", "Python", "MATLAB"],
-    control: ["PID", "LQR", "Fuzzy Logic", "Kalman Filtering"],
-    embedded: ["STM32 (HAL, FreeRTOS, CAN, I²C, SPI)", "ESP32", "ESP8266", "Arduino Uno"],
-    simulation: ["Webots", "SolidWorks", "Fusion 360"],
+    control: ["PID", "LQR", "Reinforcement Learning", "Kalman Filtering"],
+    embedded: ["STM32", "ESP32", "ESP8266", "Arduino Uno"],
+    simulation: ["Webots", "Matlab Simulink","MuJoCo"],
     pcb: ["Altium Designer", "JLCPCB EDA"],
+    design: ["SolidWorks", "Fusion 360"]
   },
   experience: [
     {
@@ -136,16 +137,16 @@ export const personalInfo = {
       description: "A web-based mini-game featuring orbital mechanics and pursuit-evasion gameplay. Playable directly in the browser.",
       category: "Web Games & Others",
       techStack: ["HTML5", "JavaScript", "Canvas"],
-      githubUrl: "https://github.com/yourusername/orbital-pursuit",
-      demoUrl: "https://yourusername.github.io/orbital-pursuit"
+      githubUrl: "https://github.com/zhaoyufei122/orbital-pursuit",
+      demoUrl: "https://zhaoyufei122.github.io/orbital-pursuit/"
     },
     {
       title: "Orbital Pursuit 2",
       description: "Sequel to the orbital pursuit game with advanced mechanics, new levels, and improved physics.",
       category: "Web Games & Others",
       techStack: ["React", "TypeScript", "Vite"],
-      githubUrl: "https://github.com/yourusername/orbital-pursuit-2",
-      demoUrl: "https://yourusername.github.io/orbital-pursuit-2"
+      githubUrl: "https://github.com/zhaoyufei122/orbital-pursuit2",
+      demoUrl: "https://orbital-pursuit.space/"
     }
   ]
 };
