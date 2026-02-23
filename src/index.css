@@ -12,3 +12,36 @@
 body {
   @apply bg-zinc-50 text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100 transition-colors duration-300;
 }
+
+/* Custom styles for Markdown Code Blocks */
+.prose pre {
+  @apply bg-zinc-100 text-zinc-800 border border-zinc-200 shadow-sm;
+  background-color: #f4f4f5 !important;
+  color: #27272a !important;
+}
+
+.dark .prose pre {
+  @apply bg-zinc-900/80 text-zinc-200 border-zinc-800/50;
+  background-color: rgba(24, 24, 27, 0.8) !important;
+  color: #e4e4e7 !important;
+}
+
+/* Custom Scrollbar for Code Blocks */
+.prose pre::-webkit-scrollbar {
+  height: 6px;
+  width: 6px;
+}
+
+.prose pre::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 4px;
+}
+
+.prose pre::-webkit-scrollbar-thumb {
+  @apply bg-zinc-300 dark:bg-zinc-700;
+  border-radius: 4px;
+}
+
+.prose pre::-webkit-scrollbar-thumb:hover {
+  @apply bg-zinc-400 dark:bg-zinc-600;
+}
