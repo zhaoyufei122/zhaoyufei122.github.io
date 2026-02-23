@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -23,7 +23,7 @@ export default function App() {
   const toggleTheme = () => setIsDark(!isDark);
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <div className="min-h-screen font-sans selection:bg-emerald-500/30 transition-colors duration-300">
         <Navbar isDark={isDark} toggleTheme={toggleTheme} />
         <main>
@@ -38,7 +38,6 @@ export default function App() {
         </main>
         <Footer />
       </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
-

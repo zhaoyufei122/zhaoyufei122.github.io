@@ -1,6 +1,7 @@
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { Terminal, Bot, BookOpen, Github, Mail, FileText, Sun, Moon } from 'lucide-react';
+import { personalInfo } from '../data';
 
 export default function Navbar({ isDark, toggleTheme }: { isDark: boolean, toggleTheme: () => void }) {
   const location = useLocation();
@@ -61,7 +62,7 @@ export default function Navbar({ isDark, toggleTheme }: { isDark: boolean, toggl
             {isDark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
           </button>
           <a
-            href="https://github.com"
+            href={personalInfo.socials.github}
             target="_blank"
             rel="noreferrer"
             className="text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"

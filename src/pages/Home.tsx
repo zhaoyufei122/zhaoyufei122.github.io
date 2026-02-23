@@ -1,6 +1,6 @@
 import { motion } from 'motion/react';
 import { personalInfo } from '../data';
-import { ChevronRight, Code2, Cpu, Wrench, Database, CircuitBoard, Briefcase, GraduationCap, Trophy } from 'lucide-react';
+import { ChevronRight, Code2, Cpu, Wrench, Database, CircuitBoard, Briefcase, GraduationCap, Trophy, PenTool } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export default function Home() {
@@ -77,8 +77,9 @@ export default function Home() {
           <SkillCard icon={Code2} title="Programming" skills={personalInfo.skills.programming} />
           <SkillCard icon={Cpu} title="Control & Estimation" skills={personalInfo.skills.control} />
           <SkillCard icon={CircuitBoard} title="Embedded Systems" skills={personalInfo.skills.embedded} />
-          <SkillCard icon={Database} title="Simulation & Design" skills={personalInfo.skills.simulation} />
+          <SkillCard icon={Database} title="Simulation" skills={personalInfo.skills.simulation} />
           <SkillCard icon={Wrench} title="PCB Design" skills={personalInfo.skills.pcb} />
+          <SkillCard icon={PenTool} title="Mechnical Design" skills={personalInfo.skills.design} />
         </div>
       </motion.section>
 

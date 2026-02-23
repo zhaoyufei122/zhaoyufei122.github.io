@@ -5,6 +5,11 @@ export const personalInfo = {
     personal: "xjtuzhaozhao@gmail.com",
     academic: "hi25078@bristol.ac.uk"
   },
+  socials: {
+    github: "https://github.com/zhaoyufei122",
+    githubUsername: "zhaoyufei122"
+  },
+
   tagline: "Bridging the gap between intelligent algorithms and robust physical systems.",
   about:
     "MSc Robotics student at the University of Bristol with a strong foundation in Engineering Mechanics from Xi'an Jiaotong University (Qian Xuesen Experimental Class). Experienced in embedded control systems, multi-sensor fusion, and AI algorithms. Former Control Group Lead for the XJTU RoboMaster Team, with a proven track record of developing high-precision robotic platforms and leading technical teams.",

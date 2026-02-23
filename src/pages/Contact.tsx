@@ -40,7 +40,7 @@ export default function Contact() {
           </a>
 
           <a 
-            href="https://github.com/yourusername"
+            href={personalInfo.socials.github}
             target="_blank"
             rel="noreferrer"
             className="flex flex-col items-center justify-center p-6 rounded-2xl bg-white dark:bg-zinc-900/50 border border-zinc-200 dark:border-zinc-800/50 hover:border-emerald-500/50 hover:bg-zinc-50 dark:hover:bg-zinc-900 transition-all group text-center shadow-sm dark:shadow-none"
@@ -49,7 +49,7 @@ export default function Contact() {
               <Github className="w-6 h-6 text-zinc-500 dark:text-zinc-400 group-hover:text-emerald-600 dark:group-hover:text-emerald-400" />
             </div>
             <h3 className="text-zinc-900 dark:text-zinc-100 font-semibold mb-1 transition-colors">GitHub</h3>
-            <p className="text-zinc-500 dark:text-zinc-400 text-xs font-mono">@yourusername</p>
+            <p className="text-zinc-500 dark:text-zinc-400 text-xs font-mono">@{personalInfo.socials.githubUsername}</p>
           </a>
         </div>
 
