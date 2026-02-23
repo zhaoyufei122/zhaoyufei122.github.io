@@ -10,31 +10,31 @@ export default function Publications() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <h1 className="text-4xl font-bold text-zinc-100 mb-4">Publications & Patents</h1>
-        <p className="text-zinc-400 mb-12 max-w-2xl">
+        <h1 className="text-4xl font-bold text-zinc-900 dark:text-zinc-100 mb-4 transition-colors">Publications & Patents</h1>
+        <p className="text-zinc-600 dark:text-zinc-400 mb-12 max-w-2xl transition-colors">
           Academic research, published papers, and granted patents in the field of robotics, control, and signal processing.
         </p>
 
         {/* Publications Section */}
         <div className="mb-16">
-          <h2 className="text-2xl font-bold text-zinc-100 mb-6 flex items-center gap-3 border-b border-zinc-800 pb-4">
-            <FileText className="w-6 h-6 text-emerald-400" />
+          <h2 className="text-2xl font-bold text-zinc-900 dark:text-zinc-100 mb-6 flex items-center gap-3 border-b border-zinc-200 dark:border-zinc-800 pb-4 transition-colors">
+            <FileText className="w-6 h-6 text-emerald-500 dark:text-emerald-400" />
             Academic Publications
           </h2>
           <div className="grid grid-cols-1 gap-4">
             {personalInfo.publications.map((pub, index) => (
-              <div key={index} className="p-6 rounded-2xl bg-zinc-900/50 border border-zinc-800/50 hover:border-zinc-700 transition-colors">
+              <div key={index} className="p-6 rounded-2xl bg-white dark:bg-zinc-900/50 border border-zinc-200 dark:border-zinc-800/50 hover:border-zinc-300 dark:hover:border-zinc-700 transition-colors shadow-sm dark:shadow-none">
                 <div className="flex items-start justify-between gap-4 mb-2">
-                  <h3 className="text-lg font-semibold text-zinc-100 leading-tight">{pub.title}</h3>
+                  <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100 leading-tight transition-colors">{pub.title}</h3>
                   {pub.link && (
-                    <a href={pub.link} target="_blank" rel="noreferrer" className="text-zinc-500 hover:text-emerald-400 transition-colors shrink-0">
+                    <a href={pub.link} target="_blank" rel="noreferrer" className="text-zinc-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors shrink-0">
                       <ExternalLink className="w-5 h-5" />
                     </a>
                   )}
                 </div>
-                <p className="text-zinc-400 text-sm mb-3">{pub.authors}</p>
+                <p className="text-zinc-600 dark:text-zinc-400 text-sm mb-3 transition-colors">{pub.authors}</p>
                 <div className="flex items-center gap-3 font-mono text-xs">
-                  <span className="px-2 py-1 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                  <span className="px-2 py-1 rounded bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
                     {pub.year}
                   </span>
                   <span className="text-zinc-500">{pub.journal}</span>
@@ -46,17 +46,17 @@ export default function Publications() {
 
         {/* Patents Section */}
         <div>
-          <h2 className="text-2xl font-bold text-zinc-100 mb-6 flex items-center gap-3 border-b border-zinc-800 pb-4">
-            <Award className="w-6 h-6 text-emerald-400" />
+          <h2 className="text-2xl font-bold text-zinc-900 dark:text-zinc-100 mb-6 flex items-center gap-3 border-b border-zinc-200 dark:border-zinc-800 pb-4 transition-colors">
+            <Award className="w-6 h-6 text-emerald-500 dark:text-emerald-400" />
             Granted Patents
           </h2>
           <div className="grid grid-cols-1 gap-4">
             {personalInfo.patents.map((patent, index) => (
-              <div key={index} className="p-6 rounded-2xl bg-zinc-900/50 border border-zinc-800/50 hover:border-zinc-700 transition-colors">
-                <h3 className="text-lg font-semibold text-zinc-100 leading-tight mb-2">{patent.title}</h3>
+              <div key={index} className="p-6 rounded-2xl bg-white dark:bg-zinc-900/50 border border-zinc-200 dark:border-zinc-800/50 hover:border-zinc-300 dark:hover:border-zinc-700 transition-colors shadow-sm dark:shadow-none">
+                <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100 leading-tight mb-2 transition-colors">{patent.title}</h3>
                 <div className="flex flex-wrap items-center gap-4 font-mono text-xs mt-4">
-                  <span className="text-emerald-400 font-bold">{patent.number}</span>
-                  <span className="px-2 py-1 rounded bg-zinc-800 text-zinc-300">
+                  <span className="text-emerald-600 dark:text-emerald-400 font-bold">{patent.number}</span>
+                  <span className="px-2 py-1 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-300 transition-colors">
                     {patent.role}
                   </span>
                   <span className="text-zinc-500">{patent.status}</span>
