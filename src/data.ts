@@ -136,16 +136,16 @@ export const personalInfo = {
       description: "A web-based mini-game featuring orbital mechanics and pursuit-evasion gameplay. Playable directly in the browser.",
       category: "Web Games & Others",
       techStack: ["HTML5", "JavaScript", "Canvas"],
-      githubUrl: "https://github.com/zhaoyufei122/orbital-pursuit",
-      demoUrl: "https://zhaoyufei122.github.io/orbital-pursuit/"
+      githubUrl: "https://github.com/yourusername/orbital-pursuit",
+      demoUrl: "https://yourusername.github.io/orbital-pursuit"
     },
     {
       title: "Orbital Pursuit 2",
       description: "Sequel to the orbital pursuit game with advanced mechanics, new levels, and improved physics.",
       category: "Web Games & Others",
       techStack: ["React", "TypeScript", "Vite"],
-      githubUrl: "https://github.com/zhaoyufei122/orbital-pursuit2",
-      demoUrl: "https://orbital-pursuit.space/"
+      githubUrl: "https://github.com/yourusername/orbital-pursuit-2",
+      demoUrl: "https://yourusername.github.io/orbital-pursuit-2"
     }
   ]
 };
@@ -160,91 +160,7 @@ export const posts = [
     tags: ["Tutorial", "Web", "Maintenance"],
     type: "System Guide",
     icon: "Wrench",
-    content: `
-# 网站维护与更新指南
-
-你好！这篇指南将用中文详细说明如何更新你网站上的内容。
-
-本网站采用了**数据与界面分离**的设计。这意味着你不需要去改动复杂的 React 代码，**只需要修改 \`src/data.ts\` 文件**，网站上的内容就会自动更新。
-
----
-
-## 1. 如何替换首页的个人照片
-
-在首页的右侧，我为你预留了一个照片展示区。目前它使用的是一张随机生成的占位图。要替换成你自己的照片，请按照以下步骤操作：
-
-1. 准备一张你满意的个人照片（建议裁剪为**正方形比例**，这样显示效果最好）。
-2. 将照片重命名为 \`profile.jpg\`（或者 \`profile.png\`）。
-3. 把这张照片放到项目的 **\`public\`** 文件夹中。
-4. 打开 \`src/pages/Home.tsx\` 文件，找到大概第 57 行的 \`<img src="..." />\` 标签。
-5. 将 \`src\` 属性的值改为 \`"/profile.jpg"\` 即可。
-
----
-
-## 2. 如何发布新的文章 (Logs & Thoughts)
-
-要发布新的随笔、旅游记录或技术总结，请打开 \`src/data.ts\` 文件，滑到最底部的 \`posts\` 数组。
-
-复制一个现有的文章对象，并按如下格式修改：
-
-\`\`\`typescript
-{
-  id: "my-travel-log", // 网址的后缀，必须是唯一的英文字母和连字符
-  title: "我的瑞士旅行记录", // 文章标题
-  excerpt: "这里是文章的简短摘要，会显示在列表页...",
-  date: "2026-02-23", // 发布日期
-  readTime: "5 min read", // 阅读时间
-  tags: ["Travel", "Life", "Photography"], // 标签
-  type: "Article", // 类型，比如 Article, Repo, System Guide
-  icon: "BookOpen", // 图标，可选：BookOpen, Github, Wrench
-  content: \`
-在这里写你的正文！
-支持 **Markdown** 语法。
-
-你可以写代码块、加粗、做列表，甚至插入图片：
-![风景照](/my-photo.jpg) 
-*(注意：图片也要放在 public 文件夹下)*
-  \`
-}
-\`\`\`
-
----
-
-## 3. 如何添加新的项目 (Projects)
-
-打开 \`src/data.ts\`，找到 \`personalInfo.githubProjects\` 数组。在数组中添加一个新的对象：
-
-\`\`\`typescript
-{
-  title: "新的机器人项目",
-  description: "这个项目实现了什么功能，解决了什么问题...",
-  category: "Robotics & Embedded", // 分类名称，相同的分类会自动归为一组！
-  techStack: ["C++", "ROS2"], // 技术栈标签
-  githubUrl: "https://github.com/...", // GitHub 仓库链接
-  demoUrl: "https://..." // （可选）如果是网页小游戏或有演示视频，填在这里，会出现 PLAY 按钮
-}
-\`\`\`
-
----
-
-## 4. 如何添加论文和专利 (Publications & Patents)
-
-同样在 \`src/data.ts\` 中，找到 \`personalInfo.publications\` 或 \`personalInfo.patents\` 数组。
-
-按照现有的格式，添加新的对象即可。例如添加一篇新论文：
-
-\`\`\`typescript
-{
-  title: "你的新论文标题",
-  authors: "Zhao, Y.; et al.",
-  journal: "IEEE Robotics and Automation Letters",
-  year: "2026",
-  link: "https://doi.org/...", // （可选）论文链接
-}
-\`\`\`
-
-网站会自动为你排版并渲染出漂亮的卡片！
-    `
+    contentUrl: "/posts/how-to-update.md"
   },
   {
     id: "stm32-flight-controller",
@@ -255,19 +171,7 @@ export const posts = [
     tags: ["Embedded", "STM32", "Control Systems"],
     type: "Article",
     icon: "BookOpen",
-    content: `
-# Building a Custom STM32 Flight Controller
-
-*This is a placeholder article.*
-
-In this post, I will discuss the architecture of my custom flight controller based on the STM32F4 series microcontroller.
-
-## RTOS Scheduling
-Using FreeRTOS allowed me to decouple the high-frequency control loop from lower-priority tasks like telemetry and logging.
-
-## Sensor Fusion
-I implemented a robust Kalman filter to fuse data from the MPU6050 accelerometer and gyroscope, providing stable attitude estimation even under high vibration.
-    `
+    contentUrl: "/posts/stm32-flight-controller.md"
   },
   {
     id: "fuzzy-logic-repo",
@@ -278,19 +182,6 @@ I implemented a robust Kalman filter to fuse data from the MPU6050 accelerometer
     tags: ["Python", "AI", "Open Source"],
     type: "Repo",
     icon: "Github",
-    content: `
-# Fuzzy Logic Controller Library
-
-*This is a placeholder article.*
-
-This repository contains the Python implementation of the fuzzy logic algorithms I developed during my bachelor thesis.
-
-## Features
-- Mamdani and Sugeno inference systems
-- Cell mapping theory for nonlinear dynamical system analysis
-- Easy-to-use API for defining membership functions
-
-Check out the source code on my GitHub!
-    `
+    contentUrl: "/posts/fuzzy-logic-repo.md"
   }
 ];
