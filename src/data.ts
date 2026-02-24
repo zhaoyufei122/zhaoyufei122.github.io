@@ -157,6 +157,19 @@ export const personalInfo = {
 };
 
 export const posts = [
+    {
+    id: "北欧旅记",
+    title: "北欧旅记",
+    excerpt: "英国留子北欧游玩个人心得体会",
+    date: "2026-02-23",
+    readTime: "20 min read",
+    tags: ["Travel", "North Euro"],
+    type: "Travel Records",
+    icon: "BookOpen",
+    contentUrl: "/posts/北欧旅记.md"
+  },
+
+
   {
     id: "how-to-update",
     title: "系统维护指南：如何添加文章、项目与个人照片",
