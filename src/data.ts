@@ -110,6 +110,15 @@ export const personalInfo = {
   ],
   githubProjects: [
     {
+      title: "Smart Chinese Chess Guidance Board",
+      description: "Designed the PCB layout and component selection for an interactive Chinese chess board for elderly entertainment. The full board is assembled from six modular PCB panels, using magnetic switch sensing to detect piece lift/drop events from the standard initial layout, RGB LEDs driven by PWM to highlight legal moves and capture options, and red flashing/audio feedback for invalid decisions.",
+      category: "Robotics & Embedded",
+      techStack: ["EasyEDA Pro", "PCB Layout", "Magnetic Switches", "RGB LEDs", "PWM", "Hardware Prototyping"],
+      githubUrl: "https://github.com/zhaoyufei122/smart-chinese-chess-board-pcb",
+      imageUrl: "/projects/smart-chinese-chess-board-pcb-top.png",
+      videoUrl: "/projects/smart-chinese-chess-board-demo.mp4"
+    },
+    {
       title: "Fuzzy Logic Controller & Cell Mapping",
       description: "Python implementation of fuzzy logic and cell mapping theory for nonlinear dynamical system analysis, identifying periodic solutions and attractors.",
       category: "Algorithms & AI",

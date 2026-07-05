@@ -32,6 +32,27 @@ export default function Projects() {
                     key={index} 
                     className="flex flex-col p-6 rounded-2xl bg-white dark:bg-zinc-900/30 border border-zinc-200 dark:border-zinc-800/50 hover:border-emerald-500/50 hover:bg-zinc-50 dark:hover:bg-zinc-900/80 transition-all group shadow-sm dark:shadow-none"
                   >
+                    {(project.videoUrl || project.imageUrl) && (
+                      <div className="mb-5 overflow-hidden rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-950">
+                        {project.videoUrl ? (
+                          <video
+                            src={project.videoUrl}
+                            poster={project.imageUrl}
+                            controls
+                            preload="metadata"
+                            playsInline
+                            className="aspect-video w-full object-cover"
+                          />
+                        ) : (
+                          <img
+                            src={project.imageUrl}
+                            alt={`${project.title} preview`}
+                            className="aspect-video w-full object-cover"
+                          />
+                        )}
+                      </div>
+                    )}
+
                     <div className="flex items-start justify-between gap-4 mb-4">
                       <h3 className="text-xl font-bold text-zinc-900 dark:text-zinc-100 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
                         {project.title}
@@ -48,15 +69,17 @@ export default function Projects() {
                             <Play className="w-3 h-3 fill-emerald-500 dark:fill-emerald-400" /> PLAY
                           </a>
                         )}
-                        <a 
-                          href={project.githubUrl} 
-                          target="_blank" 
-                          rel="noreferrer" 
-                          className="text-zinc-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
-                          title="View Source on GitHub"
-                        >
-                          <Github className="w-5 h-5" />
-                        </a>
+                        {project.githubUrl && (
+                          <a 
+                            href={project.githubUrl} 
+                            target="_blank" 
+                            rel="noreferrer" 
+                            className="text-zinc-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
+                            title="View Source on GitHub"
+                          >
+                            <Github className="w-5 h-5" />
+                          </a>
+                        )}
                       </div>
                     </div>
                     
