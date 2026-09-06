@@ -110,6 +110,21 @@ export const personalInfo = {
   ],
   githubProjects: [
     {
+      title: "SAW-Buddy Assistive Robotics System",
+      description: "Built SAW-Buddy, a supervised ROS 2 mobile-manipulation system combining a Unitree Go2 quadruped, D1T arm, RealSense D435, and Hokuyo LiDAR for walker retrieval and delivery, user following, and door-opening assistance. In evaluation, it delivered the walker in 18 of 20 runs, recovered all three induced grasp-loss events, and opened a lightweight door in 6 of 10 attempts.",
+      category: "Robotics & Embedded",
+      techStack: ["ROS 2 Jazzy", "Unitree Go2", "Unitree D1T", "Nav2", "MoveIt", "YOLOv8", "AprilTag", "Hokuyo LiDAR"],
+      githubUrl: "https://github.com/zhaoyufei122/Final_Work/tree/feature/full-demo-pipeline",
+      relatedLinks: [
+        {
+          label: "Hokuyo Navigation",
+          url: "https://github.com/zhaoyufei122/go2_hokuyo_urg4_navigation"
+        }
+      ],
+      imageUrl: "/projects/saw-buddy-overview.png",
+      videoUrl: "/projects/saw-buddy-dissertation-demo.mp4"
+    },
+    {
       title: "Smart Chinese Chess Guidance Board",
       description: "Designed the PCB layout and component selection for an interactive Chinese chess board for elderly entertainment. The full board is assembled from six modular PCB panels, using magnetic switch sensing to detect piece lift/drop events from the standard initial layout, RGB LEDs driven by PWM to highlight legal moves and capture options, and red flashing/audio feedback for invalid decisions.",
       category: "Robotics & Embedded",
