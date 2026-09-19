@@ -142,7 +142,6 @@ export const personalInfo = {
       imageUrl: "/projects/piper-smolvla-demo-poster.jpg",
       videoUrl: "/projects/piper-smolvla-demo.mp4",
       relatedLinks: [
-        { label: "Additional trial (27 s)", url: "/projects/piper-smolvla-additional-trial.mp4" },
         { label: "Training and inference", url: "https://github.com/zhaoyufei122/piper-smolvla/blob/main/SMOLVLA.md" }
       ]
     },

@@ -10,7 +10,7 @@ test('A1 and Piper projects publish verified repositories and selected demonstra
   assert.equal(a1.videoUrl, '/projects/galaxea-a1-grasp-demo.mp4');
   assert.equal(piper.videoUrl, '/projects/piper-smolvla-demo.mp4');
   assert.ok(a1.relatedLinks?.some((link) => link.url.endsWith('galaxea-a1-hand-guiding.mp4')));
-  assert.ok(piper.relatedLinks?.some((link) => link.url.endsWith('piper-smolvla-additional-trial.mp4')));
+  assert.ok(!JSON.stringify(personalInfo.githubProjects).includes('piper-smolvla-additional-trial.mp4'));
   assert.match(a1.description, /gravity-assisted/i);
   assert.match(piper.description, /fine-tuning/i);
   assert.match(piper.description, /48-second/i);
