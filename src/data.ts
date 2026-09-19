@@ -133,6 +133,35 @@ export const personalInfo = {
   ],
   githubProjects: [
     {
+      title: "Piper + SmolVLA: Learning to Pick and Place",
+      context: "Personal robotics project | Real-arm learning and deployment",
+      description: "Built an end-to-end learning workflow on an AgileX Piper arm with a Pika gripper and RealSense D405 wrist camera: SpaceMouse demonstration collection, synchronized observations and actions, LeRobot dataset conversion, SmolVLA fine-tuning and local policy execution. The selected 48-second recording shows a red-cube pick-and-place trial. Reliable colour-conditioned selection is still under investigation: white-cube instructions are not yet reliable, motion jitter remains, and no systematic success-rate benchmark has been measured.",
+      category: "Robotics & Embedded",
+      techStack: ["AgileX Piper", "Pika Gripper", "SmolVLA", "LeRobot", "RealSense D405", "SpaceMouse", "PyTorch"],
+      githubUrl: "https://github.com/zhaoyufei122/piper-smolvla",
+      imageUrl: "/projects/piper-smolvla-demo-poster.jpg",
+      videoUrl: "/projects/piper-smolvla-demo.mp4",
+      relatedLinks: [
+        { label: "Additional trial (27 s)", url: "/projects/piper-smolvla-additional-trial.mp4" },
+        { label: "Training and inference", url: "https://github.com/zhaoyufei122/piper-smolvla/blob/main/SMOLVLA.md" }
+      ]
+    },
+    {
+      title: "Galaxea A1: Gravity-Assisted Teaching and MoveIt Replay",
+      context: "Personal robotics project | Motion planning and hardware integration",
+      description: "Extended the official Galaxea A1 SDK with gravity-assisted hand guiding, measured joint-and-gripper keyframe recording, and MoveIt 2 grasp replay. Connected ROS 2 Jazzy and RViz2 to the ROS 1 SDK backend through an action bridge, with gripper coordination and joint-feedback diagnostics. The recordings show physical grasping and hand-guided motion. Gravity assistance uses nominal modelling and session-local corrections; full-workspace calibration, repeatability and positioning accuracy have not been systematically evaluated.",
+      category: "Robotics & Embedded",
+      techStack: ["Galaxea A1", "ROS 2 Jazzy", "MoveIt 2", "RViz2", "ROS 1 Noetic", "Gravity Compensation", "Keyframe Teaching"],
+      githubUrl: "https://github.com/zhaoyufei122/galaxea-a1-tools",
+      imageUrl: "/projects/galaxea-a1-grasp-demo-poster.jpg",
+      videoUrl: "/projects/galaxea-a1-grasp-demo.mp4",
+      mediaAspectRatio: "9 / 16",
+      relatedLinks: [
+        { label: "Hand-guided teaching (16 s)", url: "/projects/galaxea-a1-hand-guiding.mp4" },
+        { label: "English documentation", url: "https://github.com/zhaoyufei122/galaxea-a1-tools/blob/main/README.en.md" }
+      ]
+    },
+    {
       title: "SAW-Buddy Assistive Robotics System",
       featured: true,
       context: "MSc dissertation | University of Bristol",

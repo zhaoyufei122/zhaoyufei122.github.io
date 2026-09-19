@@ -3,6 +3,20 @@ import { existsSync, statSync } from 'node:fs';
 import test from 'node:test';
 import { personalInfo, posts } from './data';
 
+test('A1 and Piper projects publish verified repositories and selected demonstrations', () => {
+  const a1 = personalInfo.githubProjects.find((project) => project.githubUrl === 'https://github.com/zhaoyufei122/galaxea-a1-tools');
+  const piper = personalInfo.githubProjects.find((project) => project.githubUrl === 'https://github.com/zhaoyufei122/piper-smolvla');
+  assert.ok(a1 && piper);
+  assert.equal(a1.videoUrl, '/projects/galaxea-a1-grasp-demo.mp4');
+  assert.equal(piper.videoUrl, '/projects/piper-smolvla-demo.mp4');
+  assert.ok(a1.relatedLinks?.some((link) => link.url.endsWith('galaxea-a1-hand-guiding.mp4')));
+  assert.ok(piper.relatedLinks?.some((link) => link.url.endsWith('piper-smolvla-additional-trial.mp4')));
+  assert.match(a1.description, /gravity-assisted/i);
+  assert.match(piper.description, /fine-tuning/i);
+  assert.match(piper.description, /48-second/i);
+  assert.match(piper.description, /not yet reliable/i);
+});
+
 test('unfinished project placeholders are not published', () => {
   const removed = ['STM32 Pan-Tilt Control System', 'Hybrid Robot Simulation Platform', 'Fuzzy Logic Controller & Cell Mapping', 'DOA Estimation Deep Convolution Network'];
   assert.ok(personalInfo.githubProjects.every((project) => !removed.includes(project.title)));
