@@ -3,8 +3,10 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Terminal, Bot, BookOpen, Github, Mail, FileText, Sun, Moon, Menu, X } from 'lucide-react';
 import { personalInfo } from '../data';
 import { useState } from 'react';
+import SiteModeSwitch from './SiteModeSwitch';
+import type { SiteMode } from '../sitePreferences';
 
-export default function Navbar({ isDark, toggleTheme }: { isDark: boolean, toggleTheme: () => void }) {
+export default function Navbar({ isDark, toggleTheme, onModeChange }: { isDark: boolean, toggleTheme: () => void, onModeChange: (mode: SiteMode) => void }) {
   const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
 
@@ -20,7 +22,7 @@ export default function Navbar({ isDark, toggleTheme }: { isDark: boolean, toggl
 
   return (
     <nav className="fixed top-0 w-full z-50 bg-white/80 dark:bg-zinc-950/80 backdrop-blur-md border-b border-zinc-200 dark:border-zinc-800 transition-colors duration-300">
-      <div className="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-3">
         <Link to="/" className="flex items-center gap-2 group" onClick={closeMenu}>
           <div className="w-8 h-8 bg-emerald-500/10 rounded-lg flex items-center justify-center border border-emerald-500/30 group-hover:border-emerald-500/60 transition-colors">
             <Bot className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
@@ -30,7 +32,7 @@ export default function Navbar({ isDark, toggleTheme }: { isDark: boolean, toggl
           </span>
         </Link>
 
-        <div className="hidden lg:flex items-center gap-6">
+        <div className="hidden xl:flex items-center gap-4">
           {links.map((link) => {
             const isActive = location.pathname === link.path;
             const Icon = link.icon;
@@ -57,11 +59,13 @@ export default function Navbar({ isDark, toggleTheme }: { isDark: boolean, toggl
           })}
         </div>
 
-        <div className="flex items-center gap-4 lg:gap-6 lg:pl-6 lg:border-l border-zinc-200 dark:border-zinc-800 transition-colors">
+        <div className="flex items-center gap-2 sm:gap-3 xl:pl-4 xl:border-l border-zinc-200 dark:border-zinc-800 transition-colors">
+          <SiteModeSwitch mode="personal" onChange={onModeChange} />
           <button 
             onClick={toggleTheme} 
             className="p-2 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
             title="Toggle Theme"
+            aria-label={isDark ? 'Use light colors' : 'Use dark colors'}
           >
             {isDark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
           </button>
@@ -69,13 +73,16 @@ export default function Navbar({ isDark, toggleTheme }: { isDark: boolean, toggl
             href={personalInfo.socials.github}
             target="_blank"
             rel="noreferrer"
-            className="text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
+            className="hidden sm:block text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
+            aria-label="GitHub profile"
           >
             <Github className="w-5 h-5" />
           </a>
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors p-1"
+            className="xl:hidden text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors p-1"
+            aria-label={isOpen ? 'Close navigation' : 'Open navigation'}
+            aria-expanded={isOpen}
           >
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -89,7 +96,7 @@ export default function Navbar({ isDark, toggleTheme }: { isDark: boolean, toggl
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden border-b border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 overflow-hidden"
+            className="xl:hidden border-b border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 overflow-hidden"
           >
             <div className="flex flex-col px-6 py-4 space-y-2">
               {links.map((link) => {

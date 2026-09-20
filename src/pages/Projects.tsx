@@ -12,7 +12,7 @@ export default function Projects() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <h1 className="text-4xl font-bold text-zinc-900 dark:text-zinc-100 mb-4 transition-colors">Projects & Repositories</h1>
+        <h1 className="text-3xl sm:text-4xl font-bold text-zinc-900 dark:text-zinc-100 mb-4 transition-colors">Projects & Repositories</h1>
         <p className="text-zinc-600 dark:text-zinc-400 mb-12 max-w-2xl transition-colors">
           A curated list of my open-source projects, algorithms, robotic control systems, and web experiments.
         </p>
@@ -53,11 +53,11 @@ export default function Projects() {
                       </div>
                     )}
 
-                    <div className="flex items-start justify-between gap-4 mb-4">
-                      <h3 className="text-xl font-bold text-zinc-900 dark:text-zinc-100 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
+                    <div className="flex flex-col items-start gap-3 mb-4">
+                      <h3 className="text-xl font-bold text-zinc-900 dark:text-zinc-100 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors break-words min-w-0">
                         {project.title}
                       </h3>
-                      <div className="flex items-center gap-3 shrink-0">
+                      <div className="flex flex-wrap items-center gap-3">
                         {project.demoUrl && (
                           <a 
                             href={project.demoUrl} 

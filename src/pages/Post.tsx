@@ -13,7 +13,7 @@ interface Heading {
   id: string;
 }
 
-export default function Post() {
+export default function Post({ academic = false }: { academic?: boolean }) {
   const { id } = useParams();
   const post = posts.find(p => p.id === id);
   const [content, setContent] = useState('');
@@ -61,9 +61,9 @@ export default function Post() {
 
   if (!post) {
     return (
-      <div className="pt-32 pb-16 px-6 max-w-4xl mx-auto text-center">
+      <div className={academic ? 'academic-section' : 'pt-32 pb-16 px-6 max-w-4xl mx-auto text-center'}>
         <h1 className="text-2xl font-bold text-zinc-900 dark:text-zinc-100 mb-4">Post Not Found</h1>
-        <Link to="/thoughts" className="text-emerald-500 hover:text-emerald-400">Return to Logs</Link>
+        <Link to="/thoughts" className="text-emerald-500 hover:text-emerald-400">{academic ? 'Return to Writing' : 'Return to Logs'}</Link>
       </div>
     );
   }
@@ -74,11 +74,34 @@ export default function Post() {
     // This avoids changing the URL hash, which conflicts with HashRouter
     const element = document.getElementById(id);
     if (element) {
-      // Calculate offset to account for the fixed navbar
-      const y = element.getBoundingClientRect().top + window.scrollY - 100;
-      window.scrollTo({ top: y, behavior: 'smooth' });
+      const headerHeight = academic ? document.querySelector('.academic-header')?.getBoundingClientRect().height ?? 76 : 76;
+      const y = element.getBoundingClientRect().top + window.scrollY - headerHeight - 24;
+      window.scrollTo({ top: y, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
     }
   };
+
+  if (academic) {
+    return (
+      <article className="academic-article">
+        <Link className="academic-inline-link academic-back-link" to="/thoughts"><ArrowLeft size={15} aria-hidden="true" />Back to Writing</Link>
+        <h1>{post.title}</h1>
+        <div className="academic-meta"><time>{post.date}</time><span>{post.readTime}</span><span>{post.type}</span></div>
+        {headings.length > 0 && (
+          <details className="academic-contents">
+            <summary>Contents</summary>
+            <ul>{headings.map((heading, index) => (
+              <li key={`${heading.id}-${index}`} style={{ marginLeft: `${heading.level - 1}rem` }}>
+                <a href={`#${heading.id}`} onClick={(event) => scrollToHeading(event, heading.id)}>{heading.text}</a>
+              </li>
+            ))}</ul>
+          </details>
+        )}
+        <div className="prose prose-zinc max-w-none">
+          {loading ? <p role="status">Loading article...</p> : <Markdown rehypePlugins={[rehypeSlug]}>{content}</Markdown>}
+        </div>
+      </article>
+    );
+  }
 
   return (
     <div className="pt-24 pb-16 px-6 max-w-[90rem] mx-auto flex justify-center">
@@ -149,4 +172,3 @@ export default function Post() {
     </div>
   );
 }
-
