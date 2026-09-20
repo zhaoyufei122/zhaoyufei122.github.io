@@ -10,11 +10,10 @@ import Contact from './pages/Contact';
 import Post from './pages/Post';
 import AcademicLayout from './components/AcademicLayout';
 import { AcademicHome, AcademicProjects, AcademicPublications, AcademicWriting, AcademicContact } from './pages/Academic';
-import { readSiteMode, readPersonalDark, savePreference, SITE_MODE_KEY, PERSONAL_THEME_KEY } from './sitePreferences';
-import type { SiteMode } from './sitePreferences';
+import { SITE_MODE, readPersonalDark, savePreference, PERSONAL_THEME_KEY } from './sitePreferences';
 
 export default function App() {
-  const [mode, setMode] = useState(readSiteMode);
+  const mode = SITE_MODE;
   const [isDark, setIsDark] = useState(readPersonalDark);
   const isAcademic = mode === 'academic';
 
@@ -28,12 +27,6 @@ export default function App() {
     const next = !isDark;
     setIsDark(next);
     savePreference(PERSONAL_THEME_KEY, next ? 'dark' : 'light');
-  };
-
-  const changeMode = (next: SiteMode) => {
-    setMode(next);
-    savePreference(SITE_MODE_KEY, next);
-    window.scrollTo({ top: 0, behavior: 'instant' });
   };
 
   const routes = (
@@ -50,10 +43,10 @@ export default function App() {
   return (
     <HashRouter>
       {isAcademic ? (
-        <AcademicLayout onModeChange={changeMode}>{routes}</AcademicLayout>
+        <AcademicLayout>{routes}</AcademicLayout>
       ) : (
         <div className="min-h-screen font-sans selection:bg-emerald-500/30 transition-colors duration-300">
-          <Navbar isDark={isDark} toggleTheme={toggleTheme} onModeChange={changeMode} />
+          <Navbar isDark={isDark} toggleTheme={toggleTheme} />
           <main>{routes}</main>
           <Footer />
         </div>

@@ -3,12 +3,9 @@ import type { ReactNode } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { Github, GraduationCap, Mail, MapPin } from 'lucide-react';
 import { personalInfo } from '../data';
-import SiteModeSwitch from './SiteModeSwitch';
-import type { SiteMode } from '../sitePreferences';
 
-export default function AcademicLayout({ children, onModeChange }: {
+export default function AcademicLayout({ children }: {
   children: ReactNode;
-  onModeChange: (mode: SiteMode) => void;
 }) {
   const { pathname } = useLocation();
   const previousPath = useRef(pathname);
@@ -43,7 +40,6 @@ export default function AcademicLayout({ children, onModeChange }: {
               <NavLink key={path} to={path} end={path === '/'}>{label}</NavLink>
             ))}
           </nav>
-          <SiteModeSwitch mode="academic" onChange={onModeChange} />
         </div>
       </header>
       <div className="academic-layout">
@@ -60,7 +56,7 @@ export default function AcademicLayout({ children, onModeChange }: {
               <li><MapPin size={15} aria-hidden="true" /><span>{personalInfo.education[0].location}</span></li>
               <li><a href={`mailto:${personalInfo.emails.academic}`}><Mail size={15} aria-hidden="true" />Email</a></li>
               <li><a href={personalInfo.socials.github} target="_blank" rel="noreferrer"><Github size={15} aria-hidden="true" />GitHub</a></li>
-              <li><Link to="/publications"><GraduationCap size={16} aria-hidden="true" />Publications</Link></li>
+              <li><a href={personalInfo.socials.googleScholar} target="_blank" rel="noreferrer"><GraduationCap size={16} aria-hidden="true" />Google Scholar</a></li>
             </ul>
           </div>
         </aside>

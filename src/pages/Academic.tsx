@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ArrowUpRight, ExternalLink, Github, Mail, Play } from 'lucide-react';
+import { ArrowUpRight, ExternalLink, Github, GraduationCap, Mail, Play } from 'lucide-react';
 import { personalInfo, posts } from '../data';
 
 type Project = typeof personalInfo.githubProjects[number];
@@ -134,7 +134,11 @@ export function AcademicHome() {
 export function AcademicPublications() {
   return (
     <>
-      <section className="academic-section"><h1>Publications</h1><PublicationList /></section>
+      <section className="academic-section">
+        <h1>Publications</h1>
+        <p><a className="academic-inline-link" href={personalInfo.socials.googleScholar} target="_blank" rel="noreferrer"><GraduationCap size={16} aria-hidden="true" />Google Scholar <ArrowUpRight size={14} aria-hidden="true" /></a></p>
+        <PublicationList />
+      </section>
       <section className="academic-section">
         <h2>Granted Patents</h2>
         {personalInfo.patents.map((patent) => (
@@ -190,6 +194,7 @@ export function AcademicContact() {
         <div><dt>Academic email</dt><dd><a href={`mailto:${personalInfo.emails.academic}`}><Mail size={16} aria-hidden="true" />{personalInfo.emails.academic}</a></dd></div>
         <div><dt>Personal email</dt><dd><a href={`mailto:${personalInfo.emails.personal}`}><Mail size={16} aria-hidden="true" />{personalInfo.emails.personal}</a></dd></div>
         <div><dt>GitHub</dt><dd><a href={personalInfo.socials.github} target="_blank" rel="noreferrer"><Github size={16} aria-hidden="true" />{personalInfo.socials.githubUsername}</a></dd></div>
+        <div><dt>Google Scholar</dt><dd><a href={personalInfo.socials.googleScholar} target="_blank" rel="noreferrer"><GraduationCap size={16} aria-hidden="true" />{personalInfo.name}</a></dd></div>
       </dl>
       <p>{personalInfo.education[0].institution}<br />{personalInfo.education[0].location}</p>
     </section>

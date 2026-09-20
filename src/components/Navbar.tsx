@@ -3,10 +3,8 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Terminal, Bot, BookOpen, Github, Mail, FileText, Sun, Moon, Menu, X } from 'lucide-react';
 import { personalInfo } from '../data';
 import { useState } from 'react';
-import SiteModeSwitch from './SiteModeSwitch';
-import type { SiteMode } from '../sitePreferences';
 
-export default function Navbar({ isDark, toggleTheme, onModeChange }: { isDark: boolean, toggleTheme: () => void, onModeChange: (mode: SiteMode) => void }) {
+export default function Navbar({ isDark, toggleTheme }: { isDark: boolean, toggleTheme: () => void }) {
   const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
 
@@ -60,7 +58,6 @@ export default function Navbar({ isDark, toggleTheme, onModeChange }: { isDark: 
         </div>
 
         <div className="flex items-center gap-2 sm:gap-3 xl:pl-4 xl:border-l border-zinc-200 dark:border-zinc-800 transition-colors">
-          <SiteModeSwitch mode="personal" onChange={onModeChange} />
           <button 
             onClick={toggleTheme} 
             className="p-2 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"

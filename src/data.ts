@@ -7,7 +7,8 @@ export const personalInfo = {
   },
   socials: {
     github: "https://github.com/zhaoyufei122",
-    githubUsername: "zhaoyufei122"
+    githubUsername: "zhaoyufei122",
+    googleScholar: "https://scholar.google.com/citations?user=mPmR05IAAAAJ&hl=zh-CN"
   },
 
   tagline: "Bridging the gap between intelligent algorithms and robust physical systems.",
@@ -80,6 +81,13 @@ export const personalInfo = {
     "1st Prize in 2022 RoboMaster Central Division (09/2022)",
   ],
   publications: [
+    {
+      title: "DOA Estimation of Coherent Signals From a Single Moving Sensor: Time-Domain Multi-Sampling and Synthetic Aperture Convolution Kernel",
+      authors: "Zhao, J.; Dong, X.; Zhao, Y.; Sun, M.; Yang, X.; Zhang, X.",
+      journal: "IEEE Transactions on Aerospace and Electronic Systems",
+      year: "2026",
+      link: "https://doi.org/10.1109/TAES.2026.3731610",
+    },
     {
       title: "Direction of Arrival Estimation of Coherent Sources via a Signal Space Deep Convolution Network",
       authors: "Zhao, J.; Gui, R.; Dong, X.; Zhao, Y.",
