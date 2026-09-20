@@ -1,7 +1,21 @@
 import assert from 'node:assert/strict';
 import { existsSync, statSync } from 'node:fs';
 import test from 'node:test';
-import { personalInfo } from './data';
+import { personalInfo, posts } from './data';
+
+test('unfinished project placeholders are not published', () => {
+  const removed = ['STM32 Pan-Tilt Control System', 'Hybrid Robot Simulation Platform', 'Fuzzy Logic Controller & Cell Mapping', 'DOA Estimation Deep Convolution Network'];
+  assert.ok(personalInfo.githubProjects.every((project) => !removed.includes(project.title)));
+  assert.ok(personalInfo.githubProjects.every((project) => !project.githubUrl?.includes('/yourusername/')));
+});
+
+test('writing keeps the travel article and removes sample articles and maintenance guide', () => {
+  assert.deepEqual(posts.map((post) => post.id), ['北欧旅记']);
+  assert.ok(existsSync(new URL('../public/posts/北欧旅记.md', import.meta.url)));
+  for (const id of ['how-to-update', 'stm32-flight-controller', 'fuzzy-logic-repo']) {
+    assert.ok(!existsSync(new URL(`../public/posts/${id}.md`, import.meta.url)), `${id} must not remain publicly accessible`);
+  }
+});
 
 test('MSc coursework is separated from publications and team work is credited', () => {
   const projects = personalInfo.githubProjects.filter((p) => p.category === 'MSc Coursework');

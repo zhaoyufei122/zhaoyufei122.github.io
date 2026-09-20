@@ -188,20 +188,6 @@ export const personalInfo = {
       videoUrl: "/projects/msc-pololu-demo.mp4"
     },
     {
-      title: "Fuzzy Logic Controller & Cell Mapping",
-      description: "Python implementation of fuzzy logic and cell mapping theory for nonlinear dynamical system analysis, identifying periodic solutions and attractors.",
-      category: "Algorithms & AI",
-      techStack: ["Python", "NumPy", "SciPy"],
-      githubUrl: "https://github.com/yourusername/fuzzy-logic-controller"
-    },
-    {
-      title: "DOA Estimation Deep Convolution Network",
-      description: "Signal Space Deep Convolution Network model for Direction of Arrival (DOA) estimation of coherent sources.",
-      category: "Algorithms & AI",
-      techStack: ["Python", "PyTorch", "MATLAB"],
-      githubUrl: "https://github.com/yourusername/doa-estimation-dcn"
-    },
-    {
       title: "RoboMaster Gimbal Control and Visual Tracking",
       context: "XJTU RoboMaster | Control Group Member",
       description: "Developed STM32F405RG control modules for the team's gimbal and visual auto-aim pipeline, integrating FreeRTOS scheduling and CAN, I2C, SPI and USART communication. Applied cascade PID, LQR and Kalman filtering for stabilization and state estimation, with Webots validation and real-hardware debugging. The video shows the team's gimbal following a moving illuminated target.",
@@ -241,7 +227,7 @@ export const personalInfo = {
 };
 
 export const posts = [
-    {
+  {
     id: "北欧旅记",
     title: "北欧旅记",
     excerpt: "英国留子北欧游玩个人心得体会",
@@ -251,40 +237,5 @@ export const posts = [
     type: "Travel Records",
     icon: "BookOpen",
     contentUrl: "/posts/北欧旅记.md"
-  },
-
-
-  {
-    id: "how-to-update",
-    title: "系统维护指南：如何添加文章、项目与个人照片",
-    excerpt: "这是一篇写给你的网站维护说明书。教你如何通过修改 data.ts 文件来更新网站上的个人经历、项目、论文，以及如何替换首页的个人照片。",
-    date: new Date().toISOString().split('T')[0],
-    readTime: "3 min read",
-    tags: ["Tutorial", "Web", "Maintenance"],
-    type: "System Guide",
-    icon: "Wrench",
-    contentUrl: "/posts/how-to-update.md"
-  },
-  {
-    id: "stm32-flight-controller",
-    title: "Building a Custom STM32 Flight Controller from Scratch",
-    excerpt: "A deep dive into the architecture, RTOS scheduling, and sensor fusion algorithms used in my latest quadcopter project.",
-    date: "2025-10-15",
-    readTime: "8 min read",
-    tags: ["Embedded", "STM32", "Control Systems"],
-    type: "Article",
-    icon: "BookOpen",
-    contentUrl: "/posts/stm32-flight-controller.md"
-  },
-  {
-    id: "fuzzy-logic-repo",
-    title: "GitHub Repo Summary: Fuzzy Logic Controller Library",
-    excerpt: "An overview of my open-source Python library for fuzzy logic control, originally developed during my bachelor thesis.",
-    date: "2025-09-22",
-    readTime: "5 min read",
-    tags: ["Python", "AI", "Open Source"],
-    type: "Repo",
-    icon: "Github",
-    contentUrl: "/posts/fuzzy-logic-repo.md"
   }
 ];
