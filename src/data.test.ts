@@ -3,6 +3,43 @@ import { existsSync, statSync } from 'node:fs';
 import test from 'node:test';
 import { personalInfo } from './data';
 
+test('MSc coursework is separated from publications and team work is credited', () => {
+  const projects = personalInfo.githubProjects.filter((p) => p.category === 'MSc Coursework');
+  assert.equal(projects.length, 3);
+  assert.ok(projects.every((p) => p.context?.includes('coursework')));
+  const team = projects.find((p) => p.title.includes('Pololu'));
+  assert.ok(team?.context?.includes('Team'));
+  assert.match(team?.description ?? '', /Fan Zhang and Zeyu Li/);
+  assert.ok(projects.every((p) => !p.githubUrl));
+  assert.equal(personalInfo.publications.length, 2);
+});
+
+test('RoboMaster projects replace generic entries with real demonstrations', () => {
+  const projects = personalInfo.githubProjects.filter((p) => p.title.startsWith('RoboMaster'));
+  assert.equal(projects.length, 2);
+  assert.ok(projects.every((p) => p.videoUrl && p.imageUrl && p.context));
+  assert.ok(!personalInfo.githubProjects.some((p) => p.title === 'STM32 Pan-Tilt Control System'));
+});
+
+test('homepage selection is curated independently of video availability', () => {
+  const selected = personalInfo.githubProjects.filter((p) => p.featured);
+  assert.equal(selected.length, 4);
+  assert.ok(selected.some((p) => !p.videoUrl));
+  assert.ok(selected.some((p) => p.title.startsWith('SAW-Buddy')));
+  assert.ok(personalInfo.githubProjects.some((p) => p.videoUrl && !p.featured));
+});
+
+test('portfolio images, videos and local figure links exist and stay deployable', () => {
+  for (const project of personalInfo.githubProjects) {
+    const assets = [project.imageUrl, project.videoUrl, ...(project.relatedLinks ?? []).map((link) => link.url)];
+    for (const path of assets.filter((path) => path?.startsWith('/projects/'))) {
+      const file = new URL(`../public${path}`, import.meta.url);
+      assert.ok(existsSync(file), `Missing asset: ${path}`);
+      assert.ok(statSync(file).size < 50 * 1024 * 1024, `Oversized asset: ${path}`);
+    }
+  }
+});
+
 test('smart chinese chess board project is listed with media assets', () => {
   const project = personalInfo.githubProjects.find(
     (item) => item.title === 'Smart Chinese Chess Guidance Board',

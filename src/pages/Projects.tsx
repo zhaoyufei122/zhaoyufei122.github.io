@@ -14,7 +14,7 @@ export default function Projects() {
       >
         <h1 className="text-3xl sm:text-4xl font-bold text-zinc-900 dark:text-zinc-100 mb-4 transition-colors">Projects & Repositories</h1>
         <p className="text-zinc-600 dark:text-zinc-400 mb-12 max-w-2xl transition-colors">
-          A curated list of my open-source projects, algorithms, robotic control systems, and web experiments.
+          Research, robotics engineering, MSc coursework, and web experiments.
         </p>
 
         {categories.map((category) => (
@@ -39,15 +39,15 @@ export default function Projects() {
                             src={project.videoUrl}
                             poster={project.imageUrl}
                             controls
-                            preload="metadata"
+                            preload="none"
                             playsInline
-                            className="aspect-video w-full object-cover"
+                            className="aspect-video w-full object-contain"
                           />
                         ) : (
                           <img
                             src={project.imageUrl}
                             alt={`${project.title} preview`}
-                            className="aspect-video w-full object-cover"
+                            className="aspect-video w-full object-contain"
                           />
                         )}
                       </div>
@@ -69,7 +69,7 @@ export default function Projects() {
                             <Play className="w-3 h-3 fill-emerald-500 dark:fill-emerald-400" /> PLAY
                           </a>
                         )}
-                        {project.githubUrl && (
+                        {project.githubUrl && !project.githubUrl.includes('/yourusername/') && (
                           <a 
                             href={project.githubUrl} 
                             target="_blank" 
@@ -96,6 +96,7 @@ export default function Projects() {
                       </div>
                     </div>
                     
+                    {project.context && <p className="text-xs text-zinc-500 dark:text-zinc-400 mb-3">{project.context}</p>}
                     <p className="text-zinc-600 dark:text-zinc-400 text-sm leading-relaxed mb-6 flex-grow transition-colors">
                       {project.description}
                     </p>

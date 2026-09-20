@@ -110,7 +110,8 @@ html[data-site-mode="academic"] body { background: #fff; color: #35383d; transit
 .academic-project-media { min-width: 0; }
 .academic-project-media img,
 .academic-project-media video { display: block; width: 100%; aspect-ratio: 16 / 9; height: auto; object-fit: contain; background: #f3f5f6; border: 1px solid #e3e6e9; border-radius: 3px; }
-.academic-project-media video { background: #111; }
+.academic-project-media video { background: #111; max-height: 400px; }
+.academic-project .academic-project-context { font-size: 12px; color: var(--academic-muted); }
 .academic-project-media a { display: block; }
 .academic-media-caption { display: flex; align-items: center; gap: 5px; margin-top: 6px; font-size: 12px; }
 .academic-project-links { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 16px; font-size: 13px; }

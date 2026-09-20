@@ -1,3 +1,18 @@
+export interface Project {
+  title: string;
+  description: string;
+  category: string;
+  techStack: string[];
+  context?: string;
+  featured?: boolean;
+  githubUrl?: string;
+  demoUrl?: string;
+  imageUrl?: string;
+  videoUrl?: string;
+  mediaAspectRatio?: string;
+  relatedLinks?: { label: string; url: string }[];
+}
+
 export const personalInfo = {
   name: "ZHAO Yufei",
   role: "Robotics Engineer & MSc Student",
@@ -119,6 +134,8 @@ export const personalInfo = {
   githubProjects: [
     {
       title: "SAW-Buddy Assistive Robotics System",
+      featured: true,
+      context: "MSc dissertation | University of Bristol",
       description: "Built SAW-Buddy, a supervised ROS 2 mobile-manipulation system combining a Unitree Go2 quadruped, D1T arm, RealSense D435, and Hokuyo LiDAR for walker retrieval and delivery, user following, and door-opening assistance. In evaluation, it delivered the walker in 18 of 20 runs, recovered all three induced grasp-loss events, and opened a lightweight door in 6 of 10 attempts.",
       category: "Robotics & Embedded",
       techStack: ["ROS 2 Jazzy", "Unitree Go2", "Unitree D1T", "Nav2", "MoveIt", "YOLOv8", "AprilTag", "Hokuyo LiDAR"],
@@ -142,6 +159,35 @@ export const personalInfo = {
       videoUrl: "/projects/smart-chinese-chess-board-demo.mp4"
     },
     {
+      title: "Learning Robot Trajectories with DMP and GMM-GMR",
+      context: "MSc coursework | Robot Learning for Control",
+      description: "Implemented a demonstration-based trajectory learning pipeline in MATLAB, using Gaussian Mixture Regression to model the nonlinear forcing term of a Dynamic Movement Primitive. Compared WLR-DMP and GMM-GMR-DMP at model sizes 3, 9 and 20 across five demonstrated trajectories. At size 9, the reported reproduction MSE fell from 9.085 to 3.3492. Converted the learned path into joint references for a two-link robot kinematic simulation.",
+      category: "MSc Coursework",
+      techStack: ["MATLAB", "Simulink", "DMP", "GMM-GMR", "Inverse Kinematics"],
+      imageUrl: "/projects/msc-dmp-trajectories.png",
+      relatedLinks: [{ label: "Reproduction error", url: "/projects/msc-dmp-error.png" }]
+    },
+    {
+      title: "Two-Link Manipulator: Robust and Underactuated Control",
+      featured: true,
+      context: "MSc coursework | Advanced Control and Dynamics",
+      description: "Derived the two-link manipulator dynamics and implemented Computed Torque Control (CTC) and Sliding Mode Control (SMC) in Simulink. Compared tracking under external disturbances, a 50 Nm torque limit and estimated joint velocity. In the reported simulations, SMC reduced steady-state RMS tracking error by approximately 6-34 times at matched gains, with increased control effort. Extended the study to local LQR stabilization of Pendubot and Acrobot models.",
+      category: "MSc Coursework",
+      techStack: ["MATLAB", "Simulink", "CTC", "Sliding Mode Control", "LQR", "Dynamics"],
+      imageUrl: "/projects/msc-manipulator-tracking.png",
+      relatedLinks: [{ label: "Control architecture", url: "/projects/msc-manipulator-architecture.png" }]
+    },
+    {
+      title: "Robust Target Following with Pololu 3pi+",
+      featured: true,
+      context: "MSc coursework | Robot System and Science | Team project",
+      description: "Investigated target-following reliability on a low-cost Pololu 3pi+ robot with range-dependent infrared sensing. Combined sensor calibration, wheel-odometry propagation and innovation gating to maintain smoother tracking during partial signal loss and unreliable surface returns. Team coursework with Fan Zhang and Zeyu Li; the demonstration shows the physical robot experiment.",
+      category: "MSc Coursework",
+      techStack: ["Pololu 3pi+", "IR Sensing", "Wheel Odometry", "Kinematic Prediction", "Sensor Fusion"],
+      imageUrl: "/projects/msc-pololu-poster.jpg",
+      videoUrl: "/projects/msc-pololu-demo.mp4"
+    },
+    {
       title: "Fuzzy Logic Controller & Cell Mapping",
       description: "Python implementation of fuzzy logic and cell mapping theory for nonlinear dynamical system analysis, identifying periodic solutions and attractors.",
       category: "Algorithms & AI",
@@ -156,18 +202,24 @@ export const personalInfo = {
       githubUrl: "https://github.com/yourusername/doa-estimation-dcn"
     },
     {
-      title: "STM32 Pan-Tilt Control System",
-      description: "Embedded control system integrating FreeRTOS, cascade PID, and LQR control with Kalman filtering for high-precision stabilization.",
+      title: "RoboMaster Gimbal Control and Visual Tracking",
+      context: "XJTU RoboMaster | Control Group Member",
+      description: "Developed STM32F405RG control modules for the team's gimbal and visual auto-aim pipeline, integrating FreeRTOS scheduling and CAN, I2C, SPI and USART communication. Applied cascade PID, LQR and Kalman filtering for stabilization and state estimation, with Webots validation and real-hardware debugging. The video shows the team's gimbal following a moving illuminated target.",
       category: "Robotics & Embedded",
-      techStack: ["C/C++", "STM32", "FreeRTOS", "CAN"],
-      githubUrl: "https://github.com/yourusername/stm32-gimbal-control"
+      techStack: ["C/C++", "STM32F405RG", "FreeRTOS", "CAN", "PID", "LQR", "Kalman Filter"],
+      imageUrl: "/projects/rm-gimbal-poster.jpg",
+      videoUrl: "/projects/rm-gimbal-demo.mp4",
+      mediaAspectRatio: "9 / 16"
     },
     {
-      title: "Hybrid Robot Simulation Platform",
-      description: "Webots simulation environment for balancing and hybrid robotic platforms to validate control algorithms before physical deployment.",
+      title: "RoboMaster Two-Wheel Balancing Infantry Robot",
+      featured: true,
+      context: "XJTU RoboMaster | Control Group Lead",
+      description: "Led control development for the team's underactuated two-wheel balancing infantry robot. Combined LQR balance control with Kalman state estimation and evaluated behavior under impact and contact disturbances through simulation and hardware testing. Coordinated integration with the mechanical, vision and electrical subgroups. The video shows the physical balancing platform in motion.",
       category: "Robotics & Embedded",
-      techStack: ["Webots", "C++", "Python"],
-      githubUrl: "https://github.com/yourusername/webots-hybrid-robot"
+      techStack: ["LQR", "Kalman Filter", "Embedded Control", "Webots", "System Integration"],
+      imageUrl: "/projects/rm-balance-poster.jpg",
+      videoUrl: "/projects/rm-balance-demo.mp4"
     },
     {
       title: "Orbital Pursuit",
@@ -185,7 +237,7 @@ export const personalInfo = {
       githubUrl: "https://github.com/zhaoyufei122/orbital-pursuit2",
       demoUrl: "https://orbital-pursuit.space/"
     }
-  ]
+  ] as Project[]
 };
 
 export const posts = [

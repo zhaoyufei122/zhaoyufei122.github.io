@@ -45,17 +45,22 @@ function ProjectEntry({ project, preview = false }: { project: Project; preview?
       {hasMedia && (
         <div className="academic-project-media">
           {project.videoUrl && !preview ? (
-            <video src={project.videoUrl} poster={project.imageUrl} controls preload="none" playsInline aria-label={`${project.title} demonstration`} />
-          ) : (
+            <video src={project.videoUrl} poster={project.imageUrl} controls preload="none" playsInline style={{ aspectRatio: project.mediaAspectRatio }} aria-label={`${project.title} demonstration`} />
+          ) : preview ? (
             <Link to="/projects" aria-label={`View ${project.title} and demonstration`}>
               <img src={project.imageUrl} alt={project.title} loading="lazy" width="480" height="270" />
               {project.videoUrl && <span className="academic-media-caption"><Play size={13} aria-hidden="true" />Watch demonstration</span>}
             </Link>
+          ) : (
+            <a href={project.imageUrl} target="_blank" rel="noreferrer" aria-label={`Open ${project.title} figure at full resolution`}>
+              <img src={project.imageUrl} alt={project.title} loading="lazy" width="480" height="270" />
+            </a>
           )}
         </div>
       )}
       <div>
         <h3>{preview ? <Link to="/projects">{project.title}</Link> : project.title}</h3>
+        {project.context && <p className="academic-project-context">{project.context}</p>}
         <p>{project.description}</p>
         {!preview && <p className="academic-technologies">{project.techStack.join(' / ')}</p>}
         <ProjectLinks project={project} />
@@ -65,7 +70,7 @@ function ProjectEntry({ project, preview = false }: { project: Project; preview?
 }
 
 export function AcademicHome() {
-  const featured = personalInfo.githubProjects.filter((project) => project.videoUrl);
+  const featured = personalInfo.githubProjects.filter((project) => project.featured);
   return (
     <>
       <section className="academic-section academic-intro">
